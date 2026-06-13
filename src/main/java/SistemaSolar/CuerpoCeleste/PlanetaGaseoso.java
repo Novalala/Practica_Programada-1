@@ -1,15 +1,11 @@
-package SistemaSolar.PlanetaRocoso;
+package SistemaSolar.CuerpoCeleste;
 
-package SistemaSolar.PlanetaRocoso;
+public class PlanetaGaseoso extends CuerpoCeleste {
 
-import SistemaSolar.CuerpoCeleste.CuerpoCeleste;
+    private boolean tieneAnillos;
 
-public class PlanetaRocoso extends CuerpoCeleste {
-
-    private String composicionCorteza;
-
-    public PlanetaRocoso(String nombre, double tamano, double distanciaAlSol,
-                         int numeroLunas, String composicionCorteza) {
+    public PlanetaGaseoso(String nombre, double tamano, double distanciaAlSol,
+                          int numeroLunas, boolean tieneAnillos) {
 
         super(nombre, tamano, distanciaAlSol, numeroLunas);
 
@@ -17,18 +13,19 @@ public class PlanetaRocoso extends CuerpoCeleste {
             throw new IllegalArgumentException("Los valores numéricos no pueden ser inválidos.");
         }
 
-        if (composicionCorteza == null || composicionCorteza.trim().isEmpty()) {
-            throw new IllegalArgumentException("La composición de la corteza no puede estar vacía.");
-        }
-
-        this.composicionCorteza = composicionCorteza;
+        this.tieneAnillos = tieneAnillos;
     }
 
-    public String getComposicionCorteza() {
-        return composicionCorteza;
+    @Override
+    public String getTipo() {
+        return "Gaseoso";
     }
 
-    public void setComposicionCorteza(String composicionCorteza) {
-        this.composicionCorteza = composicionCorteza;
+    public boolean isTieneAnillos() {
+        return tieneAnillos;
+    }
+
+    public void setTieneAnillos(boolean tieneAnillos) {
+        this.tieneAnillos = tieneAnillos;
     }
 }
